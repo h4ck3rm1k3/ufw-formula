@@ -1,0 +1,9 @@
+
+{# TODO: s/ufw/salt_name/g #}
+{% set ufw = salt['grains.filter_by']({
+    'default': {
+        'pkg': 'ufw',
+        'service': 'ufw',
+        'config': '/etc/ufw.conf',
+    },
+}, merge=salt['pillar.get']('ufw:lookup')) %}

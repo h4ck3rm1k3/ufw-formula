@@ -1,0 +1,3 @@
+ufw:
+  lookup:
+    pkg: ufw

@@ -1,16 +1,21 @@
 include:
   - ufw
 
-ufw_service_disable:
-  service.dead:
-    - name: ufw
-    - enable: True
+extend:
+  ufw:
+    pkg:
+      - purged
 
-ufw_disable:
-  cmd.run:
-    - name: "ufw --force disable"
-    - prereq:
-      - pkg: ufw
+    service:
+      - dead
+      - enable: False
+
+  ufw_enable:
+    cmd.run:
+      - name: "ufw --force disable"
+      - onlyif: "which ufw"
+      - require:
+        - pkg: ufw
 
 
 

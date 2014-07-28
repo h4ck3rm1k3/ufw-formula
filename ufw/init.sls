@@ -1,11 +1,21 @@
+
+{% from "ufw/map.jinja" import ufw with context %}
+
 ufw:
   pkg:
+    - name: {{ ufw.pkg }}
     - installed
+  service:
+    - running
+    - name: {{ ufw.service }}
+    - enable: True
+    - require:
+      - pkg: ufw
 
 ufw_enable:
   cmd.run:
     - name: "ufw --force enable"
-    - prereq:
+    - require:
       - pkg: ufw
 
 
