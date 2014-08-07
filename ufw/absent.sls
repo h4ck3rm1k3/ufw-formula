@@ -1,3 +1,6 @@
+
+# ufw.absent -- remove ufw package and service
+
 include:
   - ufw
 

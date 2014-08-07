@@ -23,3 +23,10 @@ Available states
 
 Installs the ufw package,
 and starts the associated ufw service.
+
+
+``ufw.absent``
+-------------------------------------
+
+Removes the ufw package,
+and the associated ufw service.
